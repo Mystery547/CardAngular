@@ -1,0 +1,44 @@
+<mat-card class="card-cadastro">
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="cartaManutencao.nome" placeholder="Digite o nome">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="cartaManutencao.hp" placeholder="Digite o hp">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="cartaManutencao.image" placeholder="digite a url">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="cartaManutencao.attack" placeholder="digite o attack">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="cartaManutencao.weakness" placeholder="Digite a fraqueza">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card  *ngFor="let carta of cartas">
+  <mat-card-header>
+    <mat-card-title>{{carta.nome}} - {{carta.hp}} </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class = "card-image" [src]="carta.image">
+  <mat-card-content >
+    <p> {{carta.attack}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="editar(carta)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-button (click)="excluir(carta)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+    {{carta.weakness}}
+  </mat-card-footer>
+</mat-card>
